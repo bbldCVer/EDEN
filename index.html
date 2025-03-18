@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="EDEN is an enhanced diffusion-based method for high-quality video frame interpolation, addressing the challenging problem of video frame interpolation with large motion.">
+  <meta name="keywords" content="Video interpolation, diffusion models, EDEN">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDEN: Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            EDEN: Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation
+          </h1>
+          <div class="publication-venue-container">
+            <p class="subtitle is-4 publication-venue">CVPR 2025</p>
+          </div>
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a >Zihao Zhang</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a >Haoran Chen</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a >Haoyu Zhao</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=YIt8thUAAAAJ&hl=zh-CN&oi=ao">Guansong Lu</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.co.uk/citations?user=Vg54TcsAAAAJ&hl=en&oi=ao">Yanwei Fu</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=J_8TX6sAAAAJ&hl=en&oi=ao">Hang Xu</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=7t12hVkAAAAJ&hl=zh-CN&oi=ao">Zuxuan Wu</a><sup>1,2†</sup>,
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Key Lab of Intell. Info. Processing, School of CS, Fudan University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai Collaborative Innovation Center of Intelligent Visual Computing,</span><br>
+            <span class="author-block"><sup>3</sup>Noah's Ark Lab, Huawei</span>
+            <p class="author-note">†: Corresponding author.</p>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2501.05238"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/bbldcver/EDEN"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Handling complex or nonlinear motion patterns has long posed challenges for video frame interpolation.
+            Although recent advances in diffusion-based methods offer improvements over traditional optical flow-based approaches,
+            they still struggle to generate sharp, temporally consistent frames in scenarios with large motion.
+            To address this limitation, we introduce <span class="bold">EDEN</span>, an <span class="bold">E</span>nhanced
+            <span class="bold">D</span>iffusion for high-quality large-motion vid<span class="bold">E</span>o frame
+            i<span class="bold">N</span>terpolation. Our approach first utilizes a transformer-based tokenizer to produce refined latent
+            representations of the intermediate frames for diffusion models. We then enhance the diffusion transformer with temporal
+            attention across the process and incorporate a start-end frame difference embedding to guide the generation of dynamic motion.
+            Extensive experiments demonstrate that EDEN achieves state-of-the-art results across popular benchmarks,
+            including nearly a 10% LPIPS reduction on DAVIS and SNU-FILM, and an 8% improvement on DAIN-HD.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper image and description -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pipeline</h2>
+        <div class="publication-image">
+          <img src="static/images/pipeline.jpg" alt="Pipeline of EDEN" class="hover-zoom">
+        </div>
+      </div>
+    </div>
+    <!--/ Paper image and description -->
+
+    <!-- Pipeline. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+
+          <p>
+            We design an efficient transformer-based tokenizer to enhance the representation of intermediate frame latents. Specifically, we employ a pyramid feature fusion module to integrate multi-scale features, reducing information loss during compression. Additionally, we introduce temporal attention to incorporate start and end frame information, enabling effective temporal modeling for intermediate frames. This results in strong intermediate frame latent representation.
+          </p>
+          <p>
+            For the diffusion model, we adopt a DiT-based architecture with a dual-stream conditioning mechanism to enhance denoising. Temporal attention allows the intermediate frame to effectively leverage rich pixel information from the start and end frames, while modulation of attention and MLP inputs/outputs enables adaptation to varying motion intensities. This dual-stream conditioning strategy ensures robust motion modeling across different levels of motion complexity.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Pipeline. -->
+
+
+    <div class="container is-max-desktop">
+      <!-- Results. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Results</h2>
+        </div>
+      </div>
+    </div>
+      <!--/ Results. -->
+
+<!--  <section class="hero is-light is-small">-->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <!-- 单张图片 -->
+          <div class="item">
+            <img src="./static/images/noise1.png" alt="Noise1 Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/noise2.png" alt="Noise2 Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/girl.png" alt="Girl Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/bird.png" alt="Bird Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/car.png" alt="Car Image" style="width: 100%; height: auto;">
+          </div>
+          <div class="item">
+            <img src="./static/images/fencing.png" alt="Fencing Image" style="width: 100%; height: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--  <section>-->
+<!--    <div class="hero-body">-->
+<!--            <img src="./static/images/results.png" alt="Quantitative Results" style="width: 100%; height: auto;">-->
+<!--    </div>-->
+<!--  </section>-->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{zhang2025eden,
+  title     = {EDEN: Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation},
+  author    = {Zhang, Zihao and Chen, Haoran and Zhao, Haoyu and Lu, Guansong and Fu, Yanwei and Xu, Hang and Wu, Zuxuan},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=p5lElfOw_Lb3wJTaJesi3WPMtpzuKlup0UCxPM_Y-dM&cl=ffffff&w=255&t=tt&co=ffffff&cmn=c1e0db&cmo=fdded7"></script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>Template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, thanks!</p>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
